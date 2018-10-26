@@ -9,7 +9,7 @@ Last update on 26.10.2018
 
 License: CC0
 
-Source of the data: Wikidata https://wikidata.org  (query: http://tinyurl.com/yazso2mj)
+Source of the data: Wikidata https://wikidata.org  (query: http://tinyurl.com/y8xhz2rj)
 
 Special thanks to Lucas for the queries and Vigneron for the support
 
