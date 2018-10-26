@@ -15,6 +15,7 @@
 	  SELECT DISTINCT ?lemma WHERE {
 	    VALUES ?gender { wd:Q499327 wd:Q1775415 wd:Q1775461 }
 	    ?lexeme dct:language wd:Q188;
+	            wikibase:lexicalCategory wd:Q1084;
 	            wdt:P5185 ?gender;
 	            wikibase:lemma ?lemma.
 	  }
