@@ -1,0 +1,117 @@
+@font-face { font-family: "Louis"; 	src: url('Louis George Cafe Light.ttf');	}
+@font-face { font-family: "Poetsen"; 	src: url('PoetsenOne-Regular.ttf');	}
+
+* {
+ margin: 0;
+ padding: 0;
+ font-family: "Louis";
+
+}
+body {
+ text-align: left;
+ font-size: 2em;
+ font-weight: normal; 
+ margin: 40px;
+}
+
+div { 
+ margin-top: 30px;
+ margin-bottom: 10px;
+}
+
+
+h1 { font-size: 2.2em; font-family: "Poetsen"; font-weight: normal;   }
+h1 span { font-family: "Poetsen"; font-weight: normal;  }
+h2 { font-size: 0.5em;  }
+
+.green { color: #538300;}
+.blue { color: #014C57;}
+.red { color: #8E0A00;}
+
+#noun, #score {
+ padding-top: 20px;
+ font-family: "Poetsen";
+ font-size: 1.5em;
+	}
+	
+}
+
+.form {
+ font-size: 1.2em;
+ margin: top bottom 20px;
+}
+
+.radio { margin-right:20px; margin-bottom:40px; padding:6px; font-size: 1.2em;}
+.der,.die,.das,.idk {border-radius: 5px;}
+.der {background-color: #3D95A1; color: #0F2C32;}
+.die {background-color: #FF6A5E; color: #511712;}
+.das {background-color: #B6ED58; color: #384B16;}
+.idk {background-color: #D8D8D8; color: #2A2A2A;}
+
+.button {
+ margin-top: 20px;
+ padding: 5px;
+ font-size: 1em;
+}
+
+.metrics {
+	margin: top bottom 20px;
+	padding:10px;
+	padding-left: 70px;
+}
+.round {background: url("round.png") no-repeat left ;}
+.points {background: url("star.png") no-repeat left ;}
+
+.list {font-size: 0.7em; 
+ margin-top: 0px;
+	padding-left: 40px;
+	padding-top: 5px;
+	padding-bottom: 5px;}
+	
+.zero {background: url("zero.png") no-repeat left ;}
+.plus {background: url("plus.png") no-repeat left ;}
+.minus {background: url("minus.png") no-repeat left ;}
+
+img { border:none;}
+a { color: #673D1D; text-decoration: none;}
+a:hover {color: #969696; text-decoration: none;}
+a.ancre, a.ancre:hover { color: inherit; text-decoration: none; }
+
+.floatleft {
+padding-right: 5px;
+float: left;
+}
+
+#page {
+ margin: 0 auto;
+ width: 900px;
+ text-align: left;
+}
+#header {
+ padding: 20px;
+ text-align: right;
+}
+
+
+
+.footer {
+ font-size: 0.5em;
+ position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+#footer {
+	margin-left: 40px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	}
+
+.clear {
+ clear: both;
+}
+
+
+.enligne { display: inline; }
+.cache { display: none; }
+.enbloc { display: block; border-left: solid 2px #C3ED99; margin-left: 2px; padding-left: 10px; }
