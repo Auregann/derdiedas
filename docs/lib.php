@@ -1,4 +1,5 @@
 <?php
+	//Initialize session
 	session_start();
 	$_SESSION["previousNoun"] = $_SESSION["noun"];
 	$_SESSION["previousArticle"] = $_SESSION["article"];
@@ -8,8 +9,7 @@
 	if($_SESSION["points"]=="") {$_SESSION["points"]=0;}
 	if($_SESSION["round"]=="") {$_SESSION["round"]=1;}
 	
-	$endpointUrl = 'https://query.wikidata.org/sparql';
-	
+	//Query
 	$sparqlQuery = '
 	SELECT ?lemma (SAMPLE(?gender) AS ?gender) WITH {
 	  SELECT DISTINCT ?lemma WHERE {
@@ -28,55 +28,17 @@
 	GROUP BY ?lemma
 	HAVING(COUNT(?gender) = 1)';
 
-	class sparql {
-		    
-		    private static $queries = array();
-		    
-		    private static function getCacheFilename($query) {
-		        return SPARQL_CACHE_DIR.md5($query).'.dat';
-		    }
-		    
-		    public static function query($query, $cache = 0) {
-		        self::$queries[] = $query;
-		        $cacheFilename = self::getCacheFilename($query);
-		        clearstatcache();
-		        if (($cache > 0) && file_exists($cacheFilename) && (filemtime($cacheFilename) >= time() - $cache)) {
-		            $data = @file_get_contents($cacheFilename);
-		        } else {
-		            $data = @file_get_contents('https://query.wikidata.org/bigdata/namespace/wdq/sparql?format=json&query='.urlencode($query));
-		            if ($data === false) {
-		                throw new Exception('Error'."\n".$query);
-		            }
-		            if ($cache > 0) {
-		                file_put_contents($cacheFilename, $data);
-		            }
-		        }
-		        return json_decode($data);
-		    }
-		    
-		    public static function getQueryTime($query) {
-		        $cacheFilename = self::getCacheFilename($query);
-		        clearstatcache();
-		        if (file_exists($cacheFilename)) {
-		            return filemtime($cacheFilename);
-		        }
-		        return null;
-		    }
-	    
-	    public static function getQueries() {
-	        return self::$queries;
-	    }
+	//get result of the query in json
+	$result = file_get_contents('https://query.wikidata.org/bigdata/namespace/wdq/sparql?format=json&query='.urlencode($sparqlQuery));
 
-	}
-	
 	
 	//parse the query
-	try { $items = sparql::query($sparqlQuery); }
+	try { $items = json_decode($result); }
 		catch ( Exception $e ) {
 		echo '<p>Problem, no results available.</p>';
 	}
 		
-		if (count($items->results->bindings) === 0) {
+		if (count($items->results->bindings) == 0) {
 			echo '<p>No results.</p>';
 	    }
 	    else {
