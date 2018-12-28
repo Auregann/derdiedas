@@ -26,7 +26,7 @@
 	if($phase=='end')
 	{ 
 	echo '<p>Thanks for playing!</p>
-	<p id="score"> Your score is: '.$_SESSION["points"].'</p>
+	<p id="score"> Your score is: '.$_SESSION[$langcode."points"].'</p>
 	<div>
 		<form method="post" action="index.php" class="form">
 			<input type="submit" value="Play again" class="button"/>
@@ -55,29 +55,28 @@
 		<input type="radio" id="idk" name="article" value="idk" checked="checked"/> <label for="idk">I don\'t know</label>
 		</span>
 		<p id="noun">
-			'.$_SESSION["noun"].'
+			'.$_SESSION[$langcode."noun"].'
 		</p>
 		<input type="submit" value="Submit" class="button"/>
 	</form>
 </div>
 	
 <div>
-			<p><span class="metrics round">Round: '.$_SESSION["round"].'/10</span>
-			<span class="metrics points">Points: '.$_SESSION["points"].'</span>';
+			<p><span class="metrics round">Round: '.$_SESSION[$langcode."round"].'/10</span>
+			<span class="metrics points">Points: '.$_SESSION[$langcode."points"].'</span>';
 			}
 ?>
 			</div>
 			<div>
-				<p class="">Previously:</p>
+				<p class="previously">Previously:</p>
 				<div class="">
-					<?php echo $_SESSION["list"]; //list of the previous nouns played ?>
+					<?php echo $_SESSION[$langcode."list"]; //list of the previous nouns played ?>
 				</div>
 			
 			
 			</div>
 		<div class="footer">
-		<hr>
-			<p id="footer">DerDieDas v1 by <a href="http://auregann.fr">Auregann</a>, last update on 26.10.2018 ~ Source of the data: <a href="https://query.wikidata.org/#SELECT%20%3Flemma%20%28SAMPLE%28%3Fgender%29%20AS%20%3Fgender%29%20WITH%20%7B%0A%20%20SELECT%20DISTINCT%20%3Flemma%20WHERE%20%7B%0A%20%20%20%20VALUES%20%3Fgender%20%7B%20wd%3AQ499327%20wd%3AQ1775415%20wd%3AQ1775461%20%7D%0A%20%20%20%20%3Flexeme%20dct%3Alanguage%20wd%3AQ188%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20wikibase%3AlexicalCategory%20wd%3AQ1084%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP5185%20%3Fgender%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20wikibase%3Alemma%20%3Flemma.%0A%20%20%7D%0A%20%20ORDER%20BY%20CONCAT%28MD5%28%3Flemma%29%2C%20STR%28NOW%28%29%29%29%0A%7D%20AS%20%25randomLemmas%20WHERE%20%7B%0A%20%20INCLUDE%20%25randomLemmas.%0A%20%20%3Flexeme%20wikibase%3Alemma%20%3Flemma%3B%0A%20%20%20%20%20%20%20%20%20%20wdt%3AP5185%20%3Fgender.%0A%7D%0AGROUP%20BY%20%3Flemma%0AHAVING%28COUNT%28%3Fgender%29%20%3D%201%29">query</a>) 
+			<p id="footer">DerDieDas v1 by <a href="http://auregann.fr">Auregann</a>, last update on 28.12.2018 ~ Source of the data: <a href="https://wikidata.org">Wikidata</a> (<a href="https://query.wikidata.org/#SELECT%20%3Flemma%20%28SAMPLE%28%3Fgender%29%20AS%20%3Fgender%29%20WITH%20%7B%0A%20%20SELECT%20DISTINCT%20%3Flemma%20WHERE%20%7B%0A%20%20%20%20VALUES%20%3Fgender%20%7B%20wd%3AQ499327%20wd%3AQ1775415%20wd%3AQ1775461%20%7D%0A%20%20%20%20%3Flexeme%20dct%3Alanguage%20wd%3AQ188%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20wikibase%3AlexicalCategory%20wd%3AQ1084%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP5185%20%3Fgender%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20wikibase%3Alemma%20%3Flemma.%0A%20%20%7D%0A%20%20ORDER%20BY%20CONCAT%28MD5%28%3Flemma%29%2C%20STR%28NOW%28%29%29%29%0A%7D%20AS%20%25randomLemmas%20WHERE%20%7B%0A%20%20INCLUDE%20%25randomLemmas.%0A%20%20%3Flexeme%20wikibase%3Alemma%20%3Flemma%3B%0A%20%20%20%20%20%20%20%20%20%20wdt%3AP5185%20%3Fgender.%0A%7D%0AGROUP%20BY%20%3Flemma%0AHAVING%28COUNT%28%3Fgender%29%20%3D%201%29">query</a>) 
 			~ <a href="https://github.com/Auregann">Github</a> ~ Special thanks to Lucas for the queries and Vigneron for the support ~ <a href="https://www.wikidata.org/wiki/Wikidata:Sixth_Birthday">Happy 6th birthday Wikidata!</a></p>
 		</div>
 	</body>
@@ -87,9 +86,9 @@
 	if($phase=='end')
 	{
 		session_unset();
-			$_SESSION["guess"]='';
-			$_SESSION["answer"]='';
-			$_SESSION["noun"]='';
-			$_SESSION["article"]='';
+			$_SESSION[$langcode."guess"]='';
+			$_SESSION[$langcode."answer"]='';
+			$_SESSION[$langcode."noun"]='';
+			$_SESSION[$langcode."article"]='';
 	}
 ?>
