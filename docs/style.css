@@ -93,18 +93,19 @@ float: left;
 }
 
 
-
 .footer {
  font-size: 0.5em;
  position: fixed;
-    left: 0;
+    right: 0;
     bottom: 0;
-    width: 100%;
+    width: 60%;
+	background-color: white;
 }
 #footer {
-	margin-left: 40px;
-	padding-bottom: 10px;
+	margin-left: 20px;
+	padding-bottom: 0px;
 	padding-top: 10px;
+	background-color: white;
 	}
 
 .clear {
