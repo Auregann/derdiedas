@@ -5,7 +5,7 @@ http://auregann.fr/derdiedas
 
 DerDieDas v1 by Auregann http://auregann.fr
 
-Last update on 26.10.2018
+Last update on 28.12.2018
 
 License: CC0
 
