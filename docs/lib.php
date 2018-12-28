@@ -44,7 +44,6 @@
 	    }
 	    else {
     		//select a random lexeme among the results of the query
-			;
 			$random=rand(0, 200);
 			$line=0;
 			foreach ($items->results->bindings as $item) {
@@ -92,9 +91,14 @@
 			
 		//Wrong guess
 			else {
-				$_SESSION[$langcode."points"]=$_SESSION[$langcode."points"]-1;
-			 $_SESSION[$langcode."previousGuess"]='(-1)';
-			$_SESSION[$langcode."image"]='minus';
+			//positive encouragement gameplay: no loss of point for a wrong answer
+			$_SESSION[$langcode."previousGuess"]='(0)';
+			$_SESSION[$langcode."image"]='zero';
+
+			//aggressive gameplay: negative point for a wrong answer
+			//$_SESSION[$langcode."points"]=$_SESSION[$langcode."points"];
+			//$_SESSION[$langcode."previousGuess"]='(-1)';
+			//$_SESSION[$langcode."image"]='minus';
 				}
 				
 		//Increment round, check if it's the end
